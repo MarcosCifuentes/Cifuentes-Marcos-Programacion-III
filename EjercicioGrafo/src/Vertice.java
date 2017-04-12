@@ -41,5 +41,5 @@ public class Vertice {
 	public void setEstado(Estado estado) {
 		this.estado = estado;
 	}
-	
+
 }
