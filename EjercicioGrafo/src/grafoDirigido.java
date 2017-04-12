@@ -125,8 +125,9 @@ public class grafoDirigido {
 	public void addAristas(){
 		int i = 0;
 		while( i < vertices.length-1){
-			this.addArista(i, i+1);
 			this.addArista(i, i+2);
+			this.addArista(i, i+1);
+			
 			i++;
 		}
 	}
