@@ -1,37 +1,37 @@
 
 public class Nodo {
 
-	int info;
-	Nodo next;
+	int elem;
+	Nodo siguenteNodo;
 
 	public Nodo(){
-		next = null;
+		siguenteNodo = null;
 	}
 
 	public Nodo(int s){
-		next = null;
-		info = s;
+		siguenteNodo = null;
+		elem = s;
 	}
 
-	public Nodo(Nodo n, int _info) {
-		next = n;
-		info = _info;
+	public Nodo(Nodo n, int _elem) {
+		siguenteNodo = n;
+		elem = _elem;
 	}
 
-	public void setInfo(int _info){
-		info=_info;
+	public void setElem(int _elem){
+		elem=_elem;
 	}
 
-	public int getInfo(){
-		return info;
+	public int getElem(){
+		return elem;
 	}
 
-	public Nodo getNext(){
-		return next;
+	public Nodo getSiguenteNodo(){
+		return siguenteNodo;
 	}
 
-	public void setNext(Nodo n){
-		next = n;
+	public void setSiguenteNodo(Nodo n){
+		siguenteNodo = n;
 	}
 
 }

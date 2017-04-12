@@ -16,7 +16,7 @@ public class Lista {
 	public void addNodo(int s) {
 
 		Nodo tmp = new Nodo(s);
-		tmp.setNext(first);
+		tmp.setSiguenteNodo(first);
 		first = tmp;
 		contador++;
 	}
@@ -24,15 +24,15 @@ public class Lista {
 	public void eliminarNodo(int i) {
 		int auxContador = 0;
 		if (i == 0) {
-			first = first.getNext();
+			first = first.getSiguenteNodo();
 
 		}			
 		Nodo aux = first;
 		while (auxContador < this.size()){
 			if (auxContador == i-1){					
-				aux = aux.getNext();
-				if (aux.getNext() != null) {
-					aux.setNext(aux.getNext().getNext());
+				aux = aux.getSiguenteNodo();
+				if (aux.getSiguenteNodo() != null) {
+					aux.setSiguenteNodo(aux.getSiguenteNodo().getSiguenteNodo());
 					this.contador--;
 				}
 			}
@@ -46,9 +46,9 @@ public class Lista {
 		Nodo aux = first;
 		while(i<this.size()){
 			if(cont == i){
-				return aux.getInfo();
+				return aux.getElem();
 			}else{
-				aux = aux.getNext();
+				aux = aux.getSiguenteNodo();
 				cont++;
 			}
 		}
@@ -65,12 +65,12 @@ public class Lista {
 	}
 
 	public int numeroMax(){
-		int max = first.getInfo();
+		int max = first.getElem();
 		Nodo aux = first;
 		for (int i = 0; i < this.size(); i++) {
-			if(aux.getNext() != null){
-				if(max < aux.getNext().getInfo()){
-					max = aux.getNext().getInfo();
+			if(aux.getSiguenteNodo() != null){
+				if(max < aux.getSiguenteNodo().getElem()){
+					max = aux.getSiguenteNodo().getElem();
 				}
 			}
 		}
@@ -82,36 +82,36 @@ public class Lista {
 		Nodo cursor = first;
 
 		while(cursor != null){
-			if(cursor.getInfo() == elem){
+			if(cursor.getElem() == elem){
 				return true;
 			}
-			cursor = cursor.getNext();
+			cursor = cursor.getSiguenteNodo();
 		}
 		return false;
 	}
 
-	public void addNodoOrde(int info){
-		if (this.esVacia() || first.getInfo() > info){
+	public void addNodoOrdenado(int info){
+		if (this.esVacia() || first.getElem() > info){
 			this.addNodo(info);
 		}else{
 			Nodo puntero = first;
 
-			if(puntero.getNext() == null){
+			if(puntero.getSiguenteNodo() == null){
 
-				if(puntero.getInfo()< info){				
-					puntero.setNext(new Nodo(info));
+				if(puntero.getElem()< info){				
+					puntero.setSiguenteNodo(new Nodo(info));
 				}else{
 					this.addNodo(info);
 				}
 			}else{
 
-				while(puntero.getNext()!=null && info > puntero.getNext().getInfo()){
+				while(puntero.getSiguenteNodo()!=null && info > puntero.getSiguenteNodo().getElem()){
 
-					puntero = puntero.getNext();
+					puntero = puntero.getSiguenteNodo();
 				}
 				Nodo nuevo = new Nodo(info);
-				nuevo.setNext(puntero.getNext());
-				puntero.setNext(nuevo);
+				nuevo.setSiguenteNodo(puntero.getSiguenteNodo());
+				puntero.setSiguenteNodo(nuevo);
 			}
 
 			contador++;
@@ -121,12 +121,12 @@ public class Lista {
 
 	public boolean buscarElemRecu(int valor){
 		if (!this.esVacia()){
-			if(first.getInfo() == valor){
+			if(first.getElem() == valor){
 				return true;
 			}else{
 				Nodo puntero = first;
-				if(puntero.getNext() != null){
-					return compararNext(valor,puntero.getNext());
+				if(puntero.getSiguenteNodo() != null){
+					return compararNext(valor,puntero.getSiguenteNodo());
 				}else{
 					return false;
 				}
@@ -136,10 +136,10 @@ public class Lista {
 	}
 
 	public boolean compararNext(int valor, Nodo p){
-		if(valor == p.getInfo()){
+		if(valor == p.getElem()){
 			return true;
-		}else if(p.getNext() !=null){
-			return compararNext(valor,p.getNext());
+		}else if(p.getSiguenteNodo() !=null){
+			return compararNext(valor,p.getSiguenteNodo());
 		}else{
 			return false;
 		}
@@ -157,10 +157,10 @@ public class Lista {
 
 	public void addNodoFinal(int val, Nodo n){
 
-		if(n.getNext() == null){
-			n.setNext(new Nodo(val));
+		if(n.getSiguenteNodo() == null){
+			n.setSiguenteNodo(new Nodo(val));
 		}else{
-			addNodoFinal(val,n.getNext());
+			addNodoFinal(val,n.getSiguenteNodo());
 		}
 
 	}
