@@ -1,7 +1,7 @@
 
 public class grafoDirigido {
 
-	Lista[] vertices;
+	public static Lista[] vertices;
 
 
 	public grafoDirigido(int vertice){
@@ -40,7 +40,7 @@ public class grafoDirigido {
 		return vertices[v].at(i);
 	}
 
-	public boolean tieneCicloIterativo(){//funcion que recorre el grafo iterativamente y retorna si el grafo es ciclico
+	public static boolean tieneCicloIterativo(){//funcion que recorre el grafo iterativamente y retorna si el grafo es ciclico
 
 		Pila pila = new Pila();
 
@@ -76,7 +76,7 @@ public class grafoDirigido {
 		return false;
 	}
 
-	public boolean tieneCicloRecursivo(){//funcion que retorna si el grafo es ciclico, utilizando la funcion recursiva
+	public static boolean tieneCicloRecursivo(){//funcion que retorna si el grafo es ciclico, utilizando la funcion recursiva
 		Vertice[] auxiliar = new Vertice [vertices.length];
 		for (int i = 0; i < auxiliar.length; i++) {
 			auxiliar[i] = new Vertice(i,Estado.NoVisitado);
@@ -92,7 +92,7 @@ public class grafoDirigido {
 		return false;
 	}
 
-	private boolean DFS_Visit(Vertice v,int t, Vertice[] auxiliar){//funcion recursiva que recorre el grafo
+	private static boolean DFS_Visit(Vertice v,int t, Vertice[] auxiliar){//funcion recursiva que recorre el grafo
 			
 		v.setEstado(Estado.Visitandose);
 		v.setInicio(t);
