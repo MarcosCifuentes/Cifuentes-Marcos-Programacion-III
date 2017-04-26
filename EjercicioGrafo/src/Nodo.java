@@ -33,7 +33,6 @@ public class Nodo {
 	public void setSiguenteNodo(Nodo n){
 		siguenteNodo = n;
 	}
-
 }
 
 

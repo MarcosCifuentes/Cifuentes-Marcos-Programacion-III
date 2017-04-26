@@ -5,16 +5,17 @@ public class Vertice {
 	Estado estado;
 	int inicio;
 	int fin;
-	public int getInicio() {
-		return inicio;
+	
+	public int getInicio() {//funcion que da el tiempo en el que se inicio
+		return inicio;		//la visita al vertice al recorrer el grafo recursivamente
 	}
 
 	public void setInicio(int inicio) {
 		this.inicio = inicio;
 	}
 
-	public int getFin() {
-		return fin;
+	public int getFin() {//funcion que de el tiempo en el que se finalizo
+		return fin;		 //la visita al vertice al recorrer el grafo recursivamente
 	}
 
 	public void setFin(int fin) {
@@ -41,5 +42,4 @@ public class Vertice {
 	public void setEstado(Estado estado) {
 		this.estado = estado;
 	}
-
 }

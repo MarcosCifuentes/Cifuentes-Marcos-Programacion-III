@@ -25,7 +25,6 @@ public class Lista {
 		int auxContador = 0;
 		if (i == 0) {
 			first = first.getSiguenteNodo();
-
 		}			
 		Nodo aux = first;
 		while (auxContador < this.size()){
@@ -55,7 +54,6 @@ public class Lista {
 		return null;
 	}
 
-
 	public boolean esVacia() {
 		return (first == null);
 	}
@@ -79,13 +77,13 @@ public class Lista {
 
 	public boolean buscarIguales(int elem){
 
-		Nodo cursor = first;
+		Nodo puntero = first;
 
-		while(cursor != null){
-			if(cursor.getElem() == elem){
+		while(puntero != null){
+			if(puntero.getElem() == elem){
 				return true;
 			}
-			cursor = cursor.getSiguenteNodo();
+			puntero = puntero.getSiguenteNodo();
 		}
 		return false;
 	}
@@ -113,13 +111,11 @@ public class Lista {
 				nuevo.setSiguenteNodo(puntero.getSiguenteNodo());
 				puntero.setSiguenteNodo(nuevo);
 			}
-
 			contador++;
 		}	
-
 	}
 
-	public boolean buscarElemRecu(int valor){
+	public boolean buscarElementoRecusivo(int valor){
 		if (!this.esVacia()){
 			if(first.getElem() == valor){
 				return true;
@@ -152,7 +148,6 @@ public class Lista {
 			addNodoFinal(val,first);
 			contador++;
 		}
-
 	}
 
 	public void addNodoFinal(int val, Nodo n){
@@ -162,6 +157,5 @@ public class Lista {
 		}else{
 			addNodoFinal(val,n.getSiguenteNodo());
 		}
-
 	}
 }
