@@ -28,7 +28,7 @@ public class Greedy {
 		return mochila;
 	}
 
-	//funcion que ordena los elementos en orden a su relacion valor/peso
+	//funcion que ordena los elementos de acuerdo a su relacion valor/peso
 	public void burbujeo(Elemento [] e){
 		for (int i = 0; i < e.length; i++) {
 			for (int j = i+1; j < e.length; j++) {
